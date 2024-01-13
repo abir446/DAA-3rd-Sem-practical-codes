@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
+
+//Swapping function for bubble sort
 void swap(int* arr, int i, int j)
 {
 	int temp = arr[i];
@@ -7,6 +9,7 @@ void swap(int* arr, int i, int j)
 	arr[j] = temp;
 }
 
+//Swapping function for Selection sort
 void swapSelection(int* xp, int* yp)
 {
     int temp = *xp;
@@ -24,13 +27,7 @@ void bubbleSort(int arr[], int n)
 				swap(arr, j, j + 1);
 }
 
-void printArray(int arr[], int size)
-{
-	int i;
-	for (i = 0; i < size; i++)
-		printf("%d ", arr[i]);
-	printf("\n");
-}
+
 
 void selectionSort(int arr[], int n)
 {
@@ -64,14 +61,25 @@ void insertionSort(int arr[], int n)
     }
 }
 
+//Function to print the array elements
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+}
+
+//Main function
 int main()
 {
 	int *arr;
 	int s,choice;
 
-	arr = malloc(sizeof(int)*10);
+	arr = malloc(sizeof(int)*50);//Allocating a maximum space of 50
 	printf("Enter the number of array elements: ");
-	scanf("%d",&s);
+	scanf("%d",&s);//Taking input of the number of elements that the user has to input
+	printf("Enter the array elements sperated by a space or enter: \n");
 	for (int i = 0;i < s; i++)
     {
         scanf("%d",&arr[i]);
@@ -85,14 +93,17 @@ int main()
 
 case 1:
 	bubbleSort(arr, s);
+	printf("Sorted array: ");
 	printArray(arr, s);
 	break;
 case 2:
     selectionSort(arr, s);
+	printf("Sorted array: ");
     printArray(arr, s);
     break;
 case 3:
     insertionSort(arr, s);
+    printf("Sorted array: ");
     printArray(arr, s);
     break;
 case 4:
@@ -100,7 +111,7 @@ case 4:
 
     }
     }while(1);
-	printf("Sorted array: ");
+	
 
 	return 0;
 }
